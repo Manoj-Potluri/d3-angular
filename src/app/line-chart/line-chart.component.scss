@@ -1,0 +1,8 @@
+.line {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.2px;
+    &:hover {
+      stroke-width: 2px;
+    }
+  }
