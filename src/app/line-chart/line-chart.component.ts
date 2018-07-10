@@ -23,7 +23,10 @@ export class LineChartComponent implements OnInit {
   private height: any;
   private x: any;
   private y: any;
+  private g: any;
+  private style: any;
   private svg: any;
+  private focus: any;
   private line: d3.shape.Line<[number, number]>;
 
 
@@ -40,7 +43,7 @@ export class LineChartComponent implements OnInit {
   }
 
   private drawSvg() {
-    this.svg = d3.select('svg').append('g').attr('transform','translate(' + this.margin.left + ',' + this.margin.top + ')');
+    this.svg = d3.select('svg').append('g').attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
   }
 
   private svgAxis() {
@@ -59,19 +62,19 @@ export class LineChartComponent implements OnInit {
     this.svg.append('g')
       .attr('class', 'axis axis--y')
       .call(d3Axis.axisLeft(this.y))
-      .append('text')
-      .attr('class', 'axis-title')
+      .append("text")
+      .attr("class", "axis-title")
       .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '.71em')
       .style('text-anchor', 'end')
-      .text('Opening ($)');
+      .text("Opening (USD)");
   }
 
   private drawLine() {
     this.line = d3Shape.line()
-      .x((d: any) => this.x(d.date))
-      .y((d: any) => this.y(d.open));
+      .x((d) => this.x(d.date))
+      .y((d) => this.y(d.open));
 
     this.svg.append('path')
       .datum(SENSEX)
