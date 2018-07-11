@@ -65,10 +65,12 @@ export class SortChartComponent implements OnInit {
       .call(d3Axis.axisLeft(this.y))
       .append('text')
       .attr('class', 'axis-title')
-      .attr('transform', 'rotate(-90)')
+      // .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '0.71em')
-      .attr('text-anchor', 'end')
+      .attr('fill', '#000')
+      .attr('font-weight', 'bold')
+      .attr('text-anchor', 'start')
       .text('Total Medals won from 2000 - 2012');
   }
 
