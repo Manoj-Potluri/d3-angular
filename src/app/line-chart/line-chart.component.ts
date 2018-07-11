@@ -18,6 +18,7 @@ export class LineChartComponent implements OnInit {
 
   title = 'Line Chart';
 
+  clickMessage = '';
   private margin = { top: 20, right: 20, bottom: 30, left: 50 };
   private width: any;
   private height: any;

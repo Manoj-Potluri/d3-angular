@@ -84,7 +84,13 @@ export class BarMutliseriesComponent implements OnInit {
       .attr('x', d => this.x(d.data.State))
       .attr('y', d => this.y(d[1]))
       .attr('height', d => this.y(d[0]) - this.y(d[1]))
-      .attr('width', this.x.bandwidth());
+      .attr('width', this.x.bandwidth())
+      .on('click', (d, i) => {
+        d3.select('.status')
+        .text('You clicked on Slice '+ i +', The population recorded is '+ (d[1]-d[0]) +' in the State ' + d.data.State);
+        console.log(d.data.State);
+      });
+     
 
     this.g.append('g')
       .attr('class', 'axis')

@@ -1,9 +1,13 @@
 .arc {
-    text {
-      font: 10px sans-serif;
-      text-anchor: middle;
-    }
-    path {
-      stroke: #fff;
+  text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  path {
+    stroke: #fff;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
     }
   }
+}

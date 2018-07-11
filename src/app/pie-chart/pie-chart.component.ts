@@ -38,6 +38,7 @@ export class PieChartComponent implements OnInit {
 
     this.drawSvg();
     this.drawPie();
+    // this.dataDisplay();
   }
 
   private drawSvg() {
@@ -61,12 +62,16 @@ export class PieChartComponent implements OnInit {
     let g = this.svg.selectAll('.arc')
       .data(this.pie(AGEGROUP))
       .enter().append('g')
-      .attr('class', 'arc');
+      .attr('class', 'arc')
+      .on('click', (d, i) => {
+        d3.select('.status')
+        .text('You clicked on Slice '+ i +', The population recorded is '+ d.data.population +' of age group ' + d.data.age);
+      });
     g.append('path').attr('d', this.arc)
       .style('fill', (d: any) => this.color(d.data.age));
     g.append('text').attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
       .attr('dy', '.35em')
-      .text((d: any) => d.data.age);
-  }
+      .text((d: any) => d.data.age);     
+    }
 
 }
